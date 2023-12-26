@@ -8,6 +8,8 @@ Accepted to WACV2024.
 ## Introduction
 This repository contains the codes for ["Towards Diverse and Consistent Typography Generation"](https://arxiv.org/abs/2309.02099).
 
+<img src = "images/teaser.jpg" title = "teaser" >
+
 ## Requirements
 We check the reproducibility under the environment.
 - Ubuntu (>=20.04)
@@ -22,8 +24,10 @@ git clone https://github.com/CyberAgentAILab/tdc-typography-generation.git
 cd tdc-typography-generation
 ```
 
-We manage the dependency of python libraries by [pyproject.toml]().  
-Please install the dependency via pip or poetry using [pyproject.toml]().  
+We manage the dependencies of python libraries by [pyproject.toml]().  
+Please install the dependencies via pip or poetry using [pyproject.toml](). 
+
+
 If the version of setuptools is `setuptools >=61.0.0`, we can install the dependencies via pip by:
 ``` sh
 pip install .
@@ -42,7 +46,7 @@ We provide background images via Google Drive ([link]()).
 Please download the background images and locate them to `data/`.  
 
 ## Usage
-We prepare commands for experiments as the following.
+We prepare scripts for experiments as the following.
 
 ### Preprocessing
 We recommend adding features to the dataset in advance, it makes training and testing faster.  
@@ -54,32 +58,31 @@ This script extends the dataset via [map function](https://huggingface.co/docs/d
 The extended dataset is saved in `data/map_featreus`, and `use_extended_dataset` option manages the use of the extended dataset.
 
 ### Training
+The following command trains a model, it takes a half day with the preprocessed dataset and a NVIDIA T4 machine.  
+We handle the detail of training via configuration files in `data/config/*.yaml`.  
+The basic configurations are in `src/typography_generation/config/*.py`.  
 
 ``` sh
-python -m typography_generation train \
+python -m typography_generation train_eval \
           --configname bart \
-          --jobdir outputs \
+          --jobdir ${OUTPUT_DIR} \
           --datadir data \
           --use_extended_dataset \
           --gpu \
 ```
+The outputs are in ${OUTPUT_DIR}.
 
-### Evaluate trained model
+### Sampling 
+The following command samples typographic attributes.  
+This command requires `--weight` option, which is a path for loading weights of a trained model.  
+A weight file obtained by the avobe training command is in  `${OUTPUT_DIR}/weight.pth`.  
+Please assign a path of a weight file to ${WEIGHT_FILE}.
 ``` sh
-python -m typography_generation train \
+python -m typography_generation structure_preserved_sample \
           --configname bart \
-          --jobdir outputs \
+          --jobdir ${OUTPUT_DIR} \
           --datadir data \
-          --use_extended_dataset \
-          --gpu \
-```
-
-### Sampling sets of typography
-``` sh
-python -m typography_generation train \
-          --configname bart \
-          --jobdir outputs \
-          --datadir data \
+          --weight=${WEIGHT_FILE} \
           --use_extended_dataset \
           --gpu \
 ```
@@ -87,8 +90,8 @@ python -m typography_generation train \
 
 ## Visualization
 We provides notebooks for showing results.  
-`notebooks/score.ipnyb` shows scores of the saved scores.  
-`notebooks/vis.ipnyb` shows generated graphic designs.  
+- `notebooks/score.ipnyb` shows scores of the saved results in ${OUTPUT_DIR}.  
+- `notebooks/vis.ipnyb` shows generated graphic designs in ${OUTPUT_DIR}.  
 
 ## Reference
 ```bibtex
