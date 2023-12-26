@@ -42,7 +42,7 @@ We provide background images via Google Drive ([link]()).
 Please download the background images and locate them to `data/`.  
 
 ## Usage
-We prepare scripts for experiments as the following.
+We prepare commands for experiments as the following.
 
 ### Preprocessing
 We recommend adding features to the dataset in advance, it makes training and testing faster.  

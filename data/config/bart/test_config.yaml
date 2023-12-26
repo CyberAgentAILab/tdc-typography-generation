@@ -1,0 +1,5 @@
+test_config:
+  prediction_mode: 9
+  sampling_param: 0.9
+  sampling_param_geometry: 0.25
+  sampling_param_semantic: 0.999

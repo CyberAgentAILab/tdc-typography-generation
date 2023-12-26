@@ -1,0 +1,9 @@
+text_element_prediction_flag:
+  text_font: True
+  text_font_size: True
+  text_font_color: True
+  text_angle: True
+  text_letter_spacing: True
+  text_line_height_scale: True
+  text_capitalize: True
+  text_align_type: True

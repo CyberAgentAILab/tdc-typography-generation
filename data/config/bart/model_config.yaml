@@ -1,0 +1,9 @@
+model_config:
+  d_model: 256
+  num_encoder_layers: 8
+  num_decoder_layers: 8
+  n_head: 8
+  dropout: 0.1
+  bert_dim: 768
+  clip_dim: 512
+  mlp_dim: 1792

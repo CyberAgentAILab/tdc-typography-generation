@@ -14,12 +14,9 @@ default_cluster_num_dict = {
     "text_left": 64,
     "text_center_y": 64,
     "text_center_x": 64,
-    "text_distance_y_from_prev": 16,
-    "text_distance_x_from_prev": 16,
     "text_angle": 16,
     "text_letter_spacing": 16,
     "text_line_height_scale": 16,
-    "text_line_height_size": 16,
     "canvas_aspect_ratio": 16,
 }
 

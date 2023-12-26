@@ -1,0 +1,4 @@
+meta_info:
+  model_name: "bart"
+  dataset: "crello"
+  data_dir: "crello"
