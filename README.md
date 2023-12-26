@@ -51,8 +51,8 @@ mv generate_bg_png data/
 rm generate_bg_png.tar.gz
 ```
 
-We also provide font ttf files for rendering designs and computing appropriate text sizes via Google Drive ([link](https://storage.googleapis.com/ailab-public/tdc_typography_generation/font.tar.gz), 43MB).  
-Please download the font ttf files and locate them to `data/font/`.  
+We also provide font files for rendering designs and computing appropriate text sizes via Google Drive ([link](https://storage.googleapis.com/ailab-public/tdc_typography_generation/font.tar.gz), 43MB).  
+Please download the font files and locate them to `data/font/`.  
 ``` sh
 tar zxvf font.tar.gz 
 mv font data/
