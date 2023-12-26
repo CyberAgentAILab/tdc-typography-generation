@@ -1,2 +1,104 @@
-# tdc-typography-generation
-This repository contains codes for https://arxiv.org/abs/2309.02099
+## Paper: Towards Diverse and Consistent Typography Generation
+Wataru Shimoda<sup>1</sup>, Daichi Haraguchi<sup>2</sup>, Seiichi Uchida<sup>2</sup>, Kota Yamaguchi<sup>1</sup>  
+<sup>1</sup>CyberAgent.Inc, <sup>2</sup> Kyushu University  
+Accepted to WACV2024.
+[[Arxiv](https://arxiv.org/abs/2309.02099)]
+[[project-page]()]
+
+## Introduction
+This repository contains the codes for ["Towards Diverse and Consistent Typography Generation"](https://arxiv.org/abs/2309.02099).
+
+## Requirements
+We check the reproducibility under the environment.
+- Ubuntu (>=20.04)
+- Python3 (>=3.8)
+
+
+## Install
+Clone this repository and navigate to the folder
+
+``` sh
+git clone https://github.com/CyberAgentAILab/tdc-typography-generation.git
+cd tdc-typography-generation
+```
+
+We manage the dependency of python libraries by [pyproject.toml]().  
+Please install the dependency via pip or poetry using [pyproject.toml]().  
+If the version of setuptools is `setuptools >=61.0.0`, we can install the dependencies via pip by:
+``` sh
+pip install .
+```
+or after instaling poetry (see [official docs](https://python-poetry.org/docs/)), install the dependencies by:
+``` sh
+poetry install
+```
+Note that we omit the head of commands `poetry run` in the after guidance for simplification.
+
+## Dataset
+Our model is trained and tested on [Crello dataset](https://huggingface.co/datasets/cyberagent/crello), and this dataset is open on [Hugging Face](https://huggingface.co/).  
+We can download this dataset through the [Hugging Face Dataset API](https://huggingface.co/docs/datasets/index), but this dataset does not contain high-resolution background images. 
+
+We provide background images via Google Drive ([link]()).  
+Please download the background images and locate them to `data/`.  
+
+## Usage
+We prepare scripts for experiments as the following.
+
+### Preprocessing
+We recommend adding features to the dataset in advance, it makes training and testing faster.  
+We provide a script for preprocessing:
+``` sh
+python -m typography_generation map_features --datadir data
+```
+This script extends the dataset via [map function](https://huggingface.co/docs/datasets/v2.15.0/en/package_reference/main_classes#datasets.Dataset.map), which requires several gigabytes of memory amounts.  
+The extended dataset is saved in `data/map_featreus`, and `use_extended_dataset` option manages the use of the extended dataset.
+
+### Training
+
+``` sh
+python -m typography_generation train \
+          --configname bart \
+          --jobdir outputs \
+          --datadir data \
+          --use_extended_dataset \
+          --gpu \
+```
+
+### Evaluate trained model
+``` sh
+python -m typography_generation train \
+          --configname bart \
+          --jobdir outputs \
+          --datadir data \
+          --use_extended_dataset \
+          --gpu \
+```
+
+### Sampling sets of typography
+``` sh
+python -m typography_generation train \
+          --configname bart \
+          --jobdir outputs \
+          --datadir data \
+          --use_extended_dataset \
+          --gpu \
+```
+
+
+## Visualization
+We provides notebooks for showing results.  
+`notebooks/score.ipnyb` shows scores of the saved scores.  
+`notebooks/vis.ipnyb` shows generated graphic designs.  
+
+## Reference
+```bibtex
+@misc{shimoda_2024_tdctg,
+    author    = {Shimoda, Wataru and Haraguchi, Daichi and Uchida, Seiichi and Yamaguchi, Kota},
+    title     = {Towards Diverse and Consistent Typography Generation},
+    publisher = {arXiv:2309.02099},
+    year      = {2024},
+}
+```
+
+## Contact
+This repository is maintained by Wataru shimoda(wataru_shimoda[at]cyberagent.co.jp).
