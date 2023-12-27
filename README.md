@@ -84,7 +84,7 @@ python -m typography_generation train_eval \
           --use_extended_dataset \
           --gpu \
 ```
-The outputs are in ${OUTPUT_DIR}.
+The outputs are in `${OUTPUT_DIR}`.
 
 ### Sampling 
 The following command samples typographic attributes.  
