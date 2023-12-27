@@ -13,7 +13,7 @@ This repository contains the codes for ["Towards Diverse and Consistent Typograp
 ## Requirements
 We check the reproducibility under the environment.
 - Ubuntu (>=20.04)
-- Python3 (>=3.8)
+- Python3 (>=3.8, <3.11)
 
 
 ## Install
