@@ -24,22 +24,10 @@ from typography_generation.io.build_dataset import (
     build_train_dataset,
 )
 from typography_generation.model.model import create_model
-from typography_generation.preprocess.font_embedding.train import train_font_embedding
+
 from typography_generation.preprocess.map_features import map_features
-from typography_generation.tools.add_data.add_attention_modality_error_analysis import (
-    AddAttentionModalityErrorAnalysis,
-)
-from typography_generation.tools.add_data.add_attention_text_error_analysis import (
-    AddAttentionTextErrorAnalysis,
-)
-from typography_generation.tools.add_data.add_pos_error_analysis import (
-    AddPosErrorAnalysis,
-)
+
 from typography_generation.tools.evaluator import Evaluator
-from typography_generation.tools.add_data.add_font_size_error import AddFontSizeError
-from typography_generation.tools.add_data.add_transformer_weight import (
-    AddTransformerWeight,
-)
 
 from typography_generation.tools.sampler import Sampler
 from typography_generation.tools.structure_preserved_sampler import (
@@ -177,8 +165,8 @@ def train_eval(args: Any) -> None:
     evaluator.eval_model()
 
 
-def _train_font_embedding(args: Any) -> None:
-    train_font_embedding(args.datadir, args.jobdir, args.gpu)
+# def _train_font_embedding(args: Any) -> None:
+#     train_font_embedding(args.datadir, args.jobdir, args.gpu)
 
 
 def loadweight(weight_file: Any, gpu: bool, model: Any) -> Any:
@@ -283,86 +271,6 @@ def structure_preserved_sample(args: Any) -> None:
     sampler.sample()
 
 
-def add_results(
-    prefix: str,
-    getter_class: Any,
-    data_dir,
-    global_config_input,
-    weight,
-    jobdir,
-    gpu,
-    debug,
-) -> None:
-    logger.info(f"{prefix}")
-    config = get_global_config(**global_config_input)
-    model_name, model_kwargs = get_model_config_input(config)
-
-    logger.info("model creation")
-    model = create_model(
-        model_name,
-        **model_kwargs,
-    )
-    model = loadweight(weight, gpu, model)
-
-    logger.info(f"log file location {jobdir}/log.log")
-    make_logfile(jobdir, debug)
-    save_dir = get_save_dir(jobdir)
-    logger.info(f"save_dir {save_dir}")
-    prefix_list_object = get_prefix_lists(config)
-    font_config = get_font_config(config)
-
-    dataset = build_test_dataset(
-        data_dir,
-        prefix_list_object,
-        font_config,
-        use_extended_dataset=args.use_extended_dataset,
-        debug=debug,
-    )
-    getter = getter_class(
-        model,
-        gpu,
-        save_dir,
-        dataset,
-        prefix_list_object,
-        debug=debug,
-    )
-    logger.info("start get data")
-    getter.compute_model()
-
-
-def add_font_size_error(args: Any) -> None:
-    add_data_inputs = args2add_data_inputs(args)
-    add_results("font size error", AddFontSizeError, **add_data_inputs)
-
-
-def add_transformer_weight(args: Any) -> None:
-    add_data_inputs = args2add_data_inputs(args)
-    add_results("transformer weight", AddTransformerWeight, **add_data_inputs)
-
-
-def add_pos_error_analysis(args: Any) -> FileNotFoundError:
-    add_data_inputs = args2add_data_inputs(args)
-    add_results("pos error analysis", AddPosErrorAnalysis, **add_data_inputs)
-
-
-def add_attention_modality_error_analysis(args: Any) -> FileNotFoundError:
-    add_data_inputs = args2add_data_inputs(args)
-    add_results(
-        "attention modality error analysis",
-        AddAttentionModalityErrorAnalysis,
-        **add_data_inputs,
-    )
-
-
-def add_attention_text_error_analysis(args: Any) -> FileNotFoundError:
-    add_data_inputs = args2add_data_inputs(args)
-    add_results(
-        "attention text error analysis",
-        AddAttentionTextErrorAnalysis,
-        **add_data_inputs,
-    )
-
-
 def evaluation_pattern(args: Any, prefix: str, evaluation_class: Any) -> None:
     logger.info(f"{prefix}")
     data_dir = args.datadir
@@ -418,15 +326,9 @@ def _map_features(args: Any) -> None:
 COMMANDS = {
     "train": train,
     "train_evaluation": train_eval,
-    "train_font_embedding": _train_font_embedding,
     "sample": sample,
     "structure_preserved_sample": structure_preserved_sample,
     "evaluation": evaluation,
-    "add_transformer_weight": add_transformer_weight,
-    "add_font_size_error": add_font_size_error,
-    "add_pos_error_analysis": add_pos_error_analysis,
-    "add_attention_modality_error_analysis": add_attention_modality_error_analysis,
-    "add_attention_text_error_analysis": add_attention_text_error_analysis,
     "map_features": _map_features,
 }
 
