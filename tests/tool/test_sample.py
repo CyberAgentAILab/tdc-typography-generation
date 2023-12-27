@@ -1,14 +1,12 @@
 from typing import Dict, List
+
 import pytest
-from typography_generation.__main__ import (
-    get_global_config,
-    get_model_config_input,
-    get_prefix_lists,
-    get_sampling_config,
-)
-from typography_generation.config.default import (
-    get_font_config,
-)
+
+from typography_generation.__main__ import (get_global_config,
+                                            get_model_config_input,
+                                            get_prefix_lists,
+                                            get_sampling_config)
+from typography_generation.config.default import get_font_config
 from typography_generation.io.build_dataset import build_test_dataset
 from typography_generation.model.model import create_model
 from typography_generation.tools.sampler import Sampler

@@ -12,14 +12,10 @@ from logzero import logger
 from torch.utils.data._utils.collate import default_collate
 from torch.utils.tensorboard import SummaryWriter
 
-from typography_generation.config.attribute_config import (
-    TextElementContextPredictionAttributeConfig,
-)
+from typography_generation.config.attribute_config import \
+    TextElementContextPredictionAttributeConfig
 from typography_generation.io.data_loader import CrelloLoader
-from typography_generation.io.data_object import (
-    ModelInput,
-    PrefixListObject,
-)
+from typography_generation.io.data_object import ModelInput, PrefixListObject
 from typography_generation.tools.loss import LossFunc
 from typography_generation.tools.prediction_recorder import PredictionRecoder
 from typography_generation.tools.tokenizer import Tokenizer

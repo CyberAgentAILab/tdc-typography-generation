@@ -1,19 +1,17 @@
+import os
 import pickle
 from typing import Any, Dict, List, Tuple
+
 import datasets
-import os
 import numpy as np
-from PIL import Image
-from logzero import logger
-import torch
 import skia
-from transformers import CLIPProcessor, CLIPModel, CLIPTokenizer
+import torch
+from logzero import logger
+from PIL import Image
+from transformers import CLIPModel, CLIPProcessor, CLIPTokenizer
 
 from typography_generation.visualization.renderer_util import (
-    get_skia_font,
-    get_text_actual_width,
-    get_texts,
-)
+    get_skia_font, get_text_actual_width, get_texts)
 
 
 def get_scaleinfo(

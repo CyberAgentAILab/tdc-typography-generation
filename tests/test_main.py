@@ -1,17 +1,15 @@
+import os
+
 import datasets
 import pytest
 from logzero import logger
-import os
-from typography_generation.__main__ import (
-    get_global_config,
-    get_model_config_input,
-    get_prefix_lists,
-)
-from typography_generation.config.default import (
-    get_datapreprocess_config,
-    get_font_config,
-    get_model_input_prefix_list,
-)
+
+from typography_generation.__main__ import (get_global_config,
+                                            get_model_config_input,
+                                            get_prefix_lists)
+from typography_generation.config.default import (get_datapreprocess_config,
+                                                  get_font_config,
+                                                  get_model_input_prefix_list)
 from typography_generation.io.build_dataset import build_train_dataset
 from typography_generation.io.data_loader import CrelloLoader
 from typography_generation.model.model import create_model

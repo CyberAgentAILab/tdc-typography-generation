@@ -4,6 +4,7 @@ from typing import Dict, List, Tuple
 import numpy as np
 from _io import TextIOWrapper
 from logzero import logger as log
+
 from typography_generation.tools.color_func import deltaE_ciede2000, rgb2lab
 
 

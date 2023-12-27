@@ -1,14 +1,13 @@
+import os
 from typing import Tuple
-from typography_generation.io.data_loader import CrelloLoader
-from typography_generation.io.data_object import (
-    DataPreprocessConfig,
-    FontConfig,
-    PrefixListObject,
-)
-from typography_generation.tools.tokenizer import Tokenizer
+
 import datasets
 from logzero import logger
-import os
+
+from typography_generation.io.data_loader import CrelloLoader
+from typography_generation.io.data_object import (DataPreprocessConfig,
+                                                  FontConfig, PrefixListObject)
+from typography_generation.tools.tokenizer import Tokenizer
 
 
 def build_train_dataset(

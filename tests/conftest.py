@@ -2,15 +2,10 @@ import pytest
 import torch
 
 from typography_generation.config.config_args_util import (
-    get_global_config,
-    get_model_config_input,
-    get_prefix_lists,
-)
+    get_global_config, get_model_config_input, get_prefix_lists)
 from typography_generation.config.default import get_font_config
-from typography_generation.io.build_dataset import (
-    build_test_dataset,
-    build_train_dataset,
-)
+from typography_generation.io.build_dataset import (build_test_dataset,
+                                                    build_train_dataset)
 from typography_generation.model.model import create_model
 from typography_generation.tools.train import collate_batch
 

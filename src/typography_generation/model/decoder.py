@@ -2,18 +2,15 @@ from typing import Any, List, Tuple
 
 import torch
 from torch import Tensor, nn
+
 from typography_generation.config.attribute_config import (
     TextElementContextEmbeddingAttributeConfig,
-    TextElementContextPredictionAttributeConfig,
-)
+    TextElementContextPredictionAttributeConfig)
 from typography_generation.io.data_object import ModelInput
-from typography_generation.model.common import (
-    ConstEmbedding,
-    Linearx2,
-    MyTransformerDecoder,
-    MyTransformerDecoderLayer,
-    fn_ln_relu,
-)
+from typography_generation.model.common import (ConstEmbedding, Linearx2,
+                                                MyTransformerDecoder,
+                                                MyTransformerDecoderLayer,
+                                                fn_ln_relu)
 
 
 class Decoder(nn.Module):

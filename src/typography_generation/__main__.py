@@ -6,33 +6,21 @@ from typing import Any, Dict, Tuple
 import logzero
 import torch
 from logzero import logger
+
 from typography_generation.config.config_args_util import (
-    args2add_data_inputs,
-    get_global_config,
-    get_global_config_input,
-    get_model_config_input,
-    get_prefix_lists,
-    get_sampling_config,
-    get_train_config_input,
-)
-from typography_generation.config.default import (
-    get_datapreprocess_config,
-    get_font_config,
-)
-from typography_generation.io.build_dataset import (
-    build_test_dataset,
-    build_train_dataset,
-)
+    args2add_data_inputs, get_global_config, get_global_config_input,
+    get_model_config_input, get_prefix_lists, get_sampling_config,
+    get_train_config_input)
+from typography_generation.config.default import (get_datapreprocess_config,
+                                                  get_font_config)
+from typography_generation.io.build_dataset import (build_test_dataset,
+                                                    build_train_dataset)
 from typography_generation.model.model import create_model
-
 from typography_generation.preprocess.map_features import map_features
-
 from typography_generation.tools.evaluator import Evaluator
-
 from typography_generation.tools.sampler import Sampler
-from typography_generation.tools.structure_preserved_sampler import (
-    StructurePreservedSampler,
-)
+from typography_generation.tools.structure_preserved_sampler import \
+    StructurePreservedSampler
 from typography_generation.tools.train import Trainer
 
 

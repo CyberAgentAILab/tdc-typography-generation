@@ -7,22 +7,16 @@ import torch
 import torch.nn as nn
 import torch.utils.data
 from logzero import logger
+
 from typography_generation.io.data_loader import CrelloLoader
-from typography_generation.io.data_object import (
-    DesignContext,
-    ModelInput,
-    PrefixListObject,
-)
+from typography_generation.io.data_object import (DesignContext, ModelInput,
+                                                  PrefixListObject)
 from typography_generation.tools.denormalizer import Denormalizer
-from typography_generation.tools.score_func import (
-    EvalDataEntire,
-    EvalDataInstance,
-)
+from typography_generation.tools.score_func import (EvalDataEntire,
+                                                    EvalDataInstance)
 from typography_generation.tools.train import collate_batch
 from typography_generation.visualization.renderer import TextRenderer
-from typography_generation.visualization.visualizer import (
-    get_text_ids,
-)
+from typography_generation.visualization.visualizer import get_text_ids
 
 show_classfication_score_att = [
     "text_font",

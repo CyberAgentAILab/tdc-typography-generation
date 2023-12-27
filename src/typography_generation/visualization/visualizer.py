@@ -2,6 +2,7 @@ import copy
 from typing import Dict, List, Tuple
 
 import numpy as np
+
 from typography_generation.tools.denormalizer import Denormalizer
 from typography_generation.tools.tokenizer import Tokenizer
 from typography_generation.visualization.renderer import TextRenderer

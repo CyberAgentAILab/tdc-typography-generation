@@ -7,9 +7,8 @@ import torch
 from logzero import logger
 from torch import Tensor
 
-from typography_generation.config.attribute_config import (
-    TextElementContextEmbeddingAttributeConfig,
-)
+from typography_generation.config.attribute_config import \
+    TextElementContextEmbeddingAttributeConfig
 
 
 @dataclass

@@ -1,9 +1,9 @@
 from dataclasses import dataclass
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
-    TextElementContextPredictionAttributeConfig,
-)
+    TextElementContextPredictionAttributeConfig)
 
 
 @dataclass

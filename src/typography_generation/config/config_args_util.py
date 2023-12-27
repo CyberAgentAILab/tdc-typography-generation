@@ -4,21 +4,15 @@ import omegaconf
 from logzero import logger
 
 from typography_generation.config.base_config_object import GlobalConfig
-from typography_generation.config.default import (
-    build_config,
-    get_bindata,
-    get_datapreprocess_config,
-    get_font_config,
-    get_model_input_prefix_list,
-    get_target_prefix_list,
-)
-from typography_generation.io.data_object import (
-    BinsData,
-    DataPreprocessConfig,
-    FontConfig,
-    PrefixListObject,
-    SamplingConfig,
-)
+from typography_generation.config.default import (build_config, get_bindata,
+                                                  get_datapreprocess_config,
+                                                  get_font_config,
+                                                  get_model_input_prefix_list,
+                                                  get_target_prefix_list)
+from typography_generation.io.data_object import (BinsData,
+                                                  DataPreprocessConfig,
+                                                  FontConfig, PrefixListObject,
+                                                  SamplingConfig)
 
 
 def args2add_data_inputs(args: Any) -> Tuple:
