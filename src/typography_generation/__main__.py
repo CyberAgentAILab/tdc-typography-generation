@@ -199,7 +199,7 @@ def sample(args: Any) -> None:
     logger.info(f"save_dir {save_dir}")
     prefix_list_object = get_prefix_lists(config)
     font_config = get_font_config(config)
-    datapreprocess_config = get_datapreprocess_config(config)
+    get_datapreprocess_config(config)
     sampling_config = get_sampling_config(config)
 
     dataset = build_test_dataset(
@@ -244,7 +244,7 @@ def structure_preserved_sample(args: Any) -> None:
     logger.info(f"save_dir {save_dir}")
     prefix_list_object = get_prefix_lists(config)
     font_config = get_font_config(config)
-    datapreprocess_config = get_datapreprocess_config(config)
+    get_datapreprocess_config(config)
     sampling_config = get_sampling_config(config)
 
     dataset = build_test_dataset(

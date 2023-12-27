@@ -128,7 +128,7 @@ def get_text_center_x_list(
     element_data: dict,
     text_actual_width: float,
 ) -> List:
-    svgid = element_data["id"]
+    element_data["id"]
     text_center_x_list = []
     element_num = len(element_data["text"])
     for text_id in range(element_num):

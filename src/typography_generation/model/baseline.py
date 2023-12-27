@@ -337,7 +337,7 @@ class Mode(Baseline):
     ) -> Dict:
         out_labels = {}
         for prefix in target_prefix_list:
-            out = model_outs[f"{prefix}"]
+            model_outs[f"{prefix}"]
             out_labels[f"{prefix}"] = self.prefix2mode[prefix]
 
         return out_labels

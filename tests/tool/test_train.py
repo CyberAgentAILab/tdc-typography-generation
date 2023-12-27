@@ -149,7 +149,6 @@ def test_flag_config_train(
         debug=True,
     )
 
-    gpu = False
     trainer = Trainer(
         model,
         False,
