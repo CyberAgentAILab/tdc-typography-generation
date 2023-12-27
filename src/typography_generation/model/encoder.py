@@ -3,8 +3,10 @@ from typing import Tuple
 import torch
 from torch import Tensor, nn
 
-from typography_generation.model.common import (MyTransformerEncoder,
-                                                MyTransformerEncoderLayer)
+from typography_generation.model.common import (
+    MyTransformerEncoder,
+    MyTransformerEncoderLayer,
+)
 
 
 class Encoder(nn.Module):

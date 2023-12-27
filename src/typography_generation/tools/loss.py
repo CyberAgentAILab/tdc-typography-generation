@@ -6,8 +6,9 @@ from logzero import logger
 from torch import Tensor, nn
 from torch.functional import F
 
-from typography_generation.config.attribute_config import \
-    TextElementContextPredictionAttributeConfig
+from typography_generation.config.attribute_config import (
+    TextElementContextPredictionAttributeConfig,
+)
 from typography_generation.io.data_object import ModelInput
 from typography_generation.model.common import Linearx3
 

@@ -11,7 +11,8 @@ from torch.functional import F
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
-    TextElementContextPredictionAttributeConfig)
+    TextElementContextPredictionAttributeConfig,
+)
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import ModelInput
 from typography_generation.model.decoder import Decoder, MultiTask

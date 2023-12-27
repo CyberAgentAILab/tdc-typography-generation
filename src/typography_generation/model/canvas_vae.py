@@ -8,7 +8,8 @@ from torch import Tensor, nn
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
-    TextElementContextPredictionAttributeConfig)
+    TextElementContextPredictionAttributeConfig,
+)
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import ModelInput
 from typography_generation.model.bottleneck import ImlevelLF

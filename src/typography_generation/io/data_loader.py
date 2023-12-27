@@ -6,11 +6,13 @@ import torch
 from logzero import logger
 
 from typography_generation.io.crello_util import CrelloProcessor
-from typography_generation.io.data_object import (DataPreprocessConfig,
-                                                  DesignContext, FontConfig,
-                                                  PrefixListObject)
-from typography_generation.io.data_utils import (get_canvas_context,
-                                                 get_element_context)
+from typography_generation.io.data_object import (
+    DataPreprocessConfig,
+    DesignContext,
+    FontConfig,
+    PrefixListObject,
+)
+from typography_generation.io.data_utils import get_canvas_context, get_element_context
 from typography_generation.tools.tokenizer import Tokenizer
 
 

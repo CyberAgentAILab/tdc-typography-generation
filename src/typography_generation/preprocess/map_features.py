@@ -11,7 +11,10 @@ from PIL import Image
 from transformers import CLIPModel, CLIPProcessor, CLIPTokenizer
 
 from typography_generation.visualization.renderer_util import (
-    get_skia_font, get_text_actual_width, get_texts)
+    get_skia_font,
+    get_text_actual_width,
+    get_texts,
+)
 
 
 def get_scaleinfo(

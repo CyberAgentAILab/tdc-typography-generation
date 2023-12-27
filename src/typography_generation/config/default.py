@@ -6,14 +6,24 @@ from omegaconf import OmegaConf
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
-    TextElementContextPredictionAttributeConfig)
+    TextElementContextPredictionAttributeConfig,
+)
 from typography_generation.config.base_config_object import (
-    CanvasEmbeddingFlag, DataConfig, GlobalConfig, MetaInfo, ModelConfig,
-    TestConfig, TextElementEmbeddingFlag, TextElementPredictionTargetFlag,
-    TrainConfig)
-from typography_generation.io.data_object import (BinsData,
-                                                  DataPreprocessConfig,
-                                                  FontConfig)
+    CanvasEmbeddingFlag,
+    DataConfig,
+    GlobalConfig,
+    MetaInfo,
+    ModelConfig,
+    TestConfig,
+    TextElementEmbeddingFlag,
+    TextElementPredictionTargetFlag,
+    TrainConfig,
+)
+from typography_generation.io.data_object import (
+    BinsData,
+    DataPreprocessConfig,
+    FontConfig,
+)
 
 
 def get_bindata(config: GlobalConfig) -> BinsData:

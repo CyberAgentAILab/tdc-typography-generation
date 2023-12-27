@@ -14,7 +14,10 @@ from transformers import CLIPModel, CLIPProcessor, CLIPTokenizer
 from typography_generation.io.data_object import FontConfig
 from typography_generation.tools.tokenizer import Tokenizer
 from typography_generation.visualization.renderer_util import (
-    get_skia_font, get_text_actual_width, get_texts)
+    get_skia_font,
+    get_text_actual_width,
+    get_texts,
+)
 
 fontmgr = skia.FontMgr()
 
