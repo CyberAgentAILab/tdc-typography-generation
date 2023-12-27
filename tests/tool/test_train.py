@@ -7,7 +7,6 @@ from typography_generation.__main__ import (
 )
 from typography_generation.config.default import get_font_config
 from typography_generation.io.build_dataset import (
-    build_test_dataset,
     build_train_dataset,
 )
 from typography_generation.io.data_object import ModelInput

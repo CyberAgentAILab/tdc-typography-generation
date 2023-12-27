@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from enum import IntEnum
 from typing import Any, Dict, List, Tuple, Union
 
 import numpy as np

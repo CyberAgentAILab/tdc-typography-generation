@@ -7,7 +7,6 @@ from logzero import logger
 
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import (
-    DataPreprocessConfig,
     DesignContext,
     FontConfig,
     PrefixListObject,

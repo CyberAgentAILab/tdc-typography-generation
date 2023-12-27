@@ -8,9 +8,7 @@ from logzero import logger
 
 from typography_generation.io.data_loader import CrelloLoader
 from typography_generation.io.data_object import (
-    DataPreprocessConfig,
     DesignContext,
-    FontConfig,
     ModelInput,
     PrefixListObject,
     SamplingConfig,

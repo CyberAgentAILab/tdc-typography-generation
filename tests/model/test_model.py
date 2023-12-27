@@ -1,19 +1,12 @@
 from typing import Any
 
-import datasets
 import pytest
 import torch
 
 from typography_generation.__main__ import (
     get_global_config,
     get_model_config_input,
-    get_prefix_lists,
 )
-from typography_generation.config.default import (
-    get_datapreprocess_config,
-    get_font_config,
-)
-from typography_generation.io.build_dataset import build_test_dataset
 from typography_generation.io.data_object import ModelInput
 from typography_generation.model.model import create_model
 from typography_generation.tools.train import collate_batch

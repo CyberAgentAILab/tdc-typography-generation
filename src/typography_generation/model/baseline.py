@@ -1,9 +1,8 @@
 import pickle
 import random
-from typing import Any, Dict, List, Tuple, Union
+from typing import Any, Dict, List, Union
 
 import numpy as np
-import torch
 from logzero import logger
 from torch import Tensor, nn
 

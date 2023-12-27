@@ -3,7 +3,7 @@ from typing import Dict, List, Tuple, Union
 import numpy as np
 import torch
 from logzero import logger
-from torch import Tensor, nn
+from torch import Tensor
 from torch.functional import F
 
 from typography_generation.config.attribute_config import (
