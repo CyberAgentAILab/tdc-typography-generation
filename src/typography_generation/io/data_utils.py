@@ -1,10 +1,12 @@
 import time
-from typing import List, Tuple
-import PIL
+from typing import List
+
 import numpy as np
+import PIL
+from logzero import logger
+
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import CanvasContext, ElementContext
-from logzero import logger
 
 
 def get_canvas_context(

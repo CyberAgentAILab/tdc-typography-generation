@@ -1,9 +1,10 @@
-from typing import Any, Dict, List, Tuple
-import numpy as np
+from typing import Any, Dict, List
 
+import numpy as np
 import torch
 from logzero import logger
 from torch import Tensor, nn
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,

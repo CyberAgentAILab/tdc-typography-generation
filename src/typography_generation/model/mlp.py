@@ -1,8 +1,10 @@
-from typing import Any, List, Dict
-import numpy as np
+from typing import Any, Dict, List
 
+import numpy as np
 import torch
+from logzero import logger
 from torch import Tensor, nn
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
@@ -12,8 +14,6 @@ from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import ModelInput
 from typography_generation.model.common import Linearx2
 from typography_generation.model.embedding import Embedding
-
-from logzero import logger
 
 
 class FCN(nn.Module):

@@ -1,9 +1,10 @@
 import time
 from typing import Any, Dict, List, Tuple
-import numpy as np
 
+import numpy as np
 import torch
 from logzero import logger
+
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import (
     DesignContext,

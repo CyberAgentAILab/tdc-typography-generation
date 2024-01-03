@@ -1,9 +1,7 @@
 import pickle
 from typing import Dict, Tuple, Union
-from einops import repeat
+
 import numpy as np
-from torch import Tensor
-import torch
 
 default_cluster_num_dict = {
     "text_font_size": 16,

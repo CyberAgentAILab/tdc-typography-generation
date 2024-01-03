@@ -1,21 +1,18 @@
 import time
 from typing import List
 
-import torch
 import torch.nn as nn
-import torch.utils.data
+from logzero import logger
+
 from typography_generation.io.data_loader import CrelloLoader
-from typography_generation.tools.sampler import Sampler
-from typography_generation.tools.score_func import EvalDataInstance
 from typography_generation.io.data_object import (
-    DataPreprocessConfig,
     DesignContext,
-    FontConfig,
     ModelInput,
     PrefixListObject,
     SamplingConfig,
 )
-from logzero import logger
+from typography_generation.tools.sampler import Sampler
+from typography_generation.tools.score_func import EvalDataInstance
 
 
 ############################################################

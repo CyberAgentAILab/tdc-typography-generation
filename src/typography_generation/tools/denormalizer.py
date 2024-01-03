@@ -1,9 +1,10 @@
 from typing import Dict, List, Tuple, Union
 
 import numpy as np
+from logzero import logger
+
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import DesignContext
-from logzero import logger
 
 
 class Denormalizer:

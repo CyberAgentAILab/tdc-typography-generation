@@ -2,9 +2,8 @@ import gc
 import os
 import re
 import time
-from typing import Any, List, Tuple, Union
+from typing import Any, List, Tuple
 
-import datasets
 import torch
 import torch.nn as nn
 import torch.utils.data
@@ -16,13 +15,9 @@ from typography_generation.config.attribute_config import (
     TextElementContextPredictionAttributeConfig,
 )
 from typography_generation.io.data_loader import CrelloLoader
-from typography_generation.io.data_object import (
-    ModelInput,
-    PrefixListObject,
-)
+from typography_generation.io.data_object import ModelInput, PrefixListObject
 from typography_generation.tools.loss import LossFunc
 from typography_generation.tools.prediction_recorder import PredictionRecoder
-from typography_generation.tools.tokenizer import Tokenizer
 
 
 ############################################################

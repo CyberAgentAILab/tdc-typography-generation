@@ -1,13 +1,14 @@
-import pickle
-from typing import Any, Dict, List, Tuple
-import datasets
 import os
+import pickle
+from typing import Any, Dict, List
+
+import datasets
 import numpy as np
-from PIL import Image
-from logzero import logger
-import torch
 import skia
-from transformers import CLIPProcessor, CLIPModel, CLIPTokenizer
+import torch
+from logzero import logger
+from PIL import Image
+from transformers import CLIPModel, CLIPProcessor, CLIPTokenizer
 
 from typography_generation.visualization.renderer_util import (
     get_skia_font,
@@ -127,7 +128,7 @@ def get_text_center_x_list(
     element_data: dict,
     text_actual_width: float,
 ) -> List:
-    svgid = element_data["id"]
+    element_data["id"]
     text_center_x_list = []
     element_num = len(element_data["text"])
     for text_id in range(element_num):

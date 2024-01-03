@@ -13,7 +13,7 @@ This repository contains the codes for ["Towards Diverse and Consistent Typograp
 ## Requirements
 We check the reproducibility under the environment.
 - Ubuntu (>=20.04)
-- Python3 (>=3.8)
+- Python3 (>=3.8, <3.11)
 
 
 ## Install
@@ -84,7 +84,7 @@ python -m typography_generation train_eval \
           --use_extended_dataset \
           --gpu \
 ```
-The outputs are in ${OUTPUT_DIR}.
+The outputs are in `${OUTPUT_DIR}`.
 
 ### Sampling 
 The following command samples typographic attributes.  

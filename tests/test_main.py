@@ -1,7 +1,9 @@
+import os
+
 import datasets
 import pytest
 from logzero import logger
-import os
+
 from typography_generation.__main__ import (
     get_global_config,
     get_model_config_input,

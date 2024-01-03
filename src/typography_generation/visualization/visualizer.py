@@ -2,6 +2,7 @@ import copy
 from typing import Dict, List, Tuple
 
 import numpy as np
+
 from typography_generation.tools.denormalizer import Denormalizer
 from typography_generation.tools.tokenizer import Tokenizer
 from typography_generation.visualization.renderer import TextRenderer
@@ -177,7 +178,7 @@ def colorize_text(
 ) -> np.array:
     text_ids = get_text_ids(element_data)
     order_list = element_data["order_list"]
-    scaleinfo = element_data["scale_box"]
+    element_data["scale_box"]
     text_ids = ordering_text_ids(order_list, text_ids)
     y0, x0, y1, x1 = get_text_coords(
         element_data, text_ids[text_index], canvas.shape[:2]

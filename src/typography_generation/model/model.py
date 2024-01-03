@@ -1,4 +1,5 @@
 from typing import Any, Dict
+
 from torch import nn
 
 from typography_generation.model.bart import BART

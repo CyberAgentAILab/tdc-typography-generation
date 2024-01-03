@@ -7,6 +7,7 @@ import torch
 from logzero import logger
 from torch import Tensor, nn
 from torch.functional import F
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,

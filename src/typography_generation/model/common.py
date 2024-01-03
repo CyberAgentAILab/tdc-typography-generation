@@ -95,7 +95,7 @@ class MyTransformerDecoder(nn.Module):
     ) -> Tensor:
         output = tgt
 
-        seq_len = _get_seq_len(tgt, self.layers[0].self_attn.batch_first)
+        _get_seq_len(tgt, self.layers[0].self_attn.batch_first)
 
         for mod in self.layers:
             output, w = mod(

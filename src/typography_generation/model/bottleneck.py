@@ -94,7 +94,6 @@ class ImlevelLF(nn.Module):
 class Bottleneck(nn.Module):
     def __init__(self) -> None:
         super(Bottleneck, self).__init__()
-        pass
 
     def forward(self, z: Tensor) -> Tensor:
         return z

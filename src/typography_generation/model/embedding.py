@@ -1,21 +1,20 @@
-from collections import OrderedDict
 import time
+from collections import OrderedDict
 from typing import Any, List, Tuple
+
+import torch
 from einops import rearrange, repeat
 from logzero import logger
-import torch
 from torch import Tensor, nn
 from torch.functional import F
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
-    TextElementContextEmbeddingAttributeConfig,
     EmbeddingConfig,
+    TextElementContextEmbeddingAttributeConfig,
 )
 from typography_generation.io.data_object import ModelInput
-from typography_generation.model.common import (
-    _conv3x3_bn_relu,
-    fn_ln_relu,
-)
+from typography_generation.model.common import _conv3x3_bn_relu, fn_ln_relu
 
 
 def set_tensor_type(inp: Tensor, tensor_type: str) -> Tensor:

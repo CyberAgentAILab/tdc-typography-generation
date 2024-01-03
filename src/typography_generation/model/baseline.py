@@ -1,11 +1,11 @@
 import pickle
 import random
-from typing import Any, Dict, List, Tuple, Union
-import numpy as np
+from typing import Any, Dict, List, Union
 
-import torch
+import numpy as np
 from logzero import logger
 from torch import Tensor, nn
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
@@ -337,7 +337,7 @@ class Mode(Baseline):
     ) -> Dict:
         out_labels = {}
         for prefix in target_prefix_list:
-            out = model_outs[f"{prefix}"]
+            model_outs[f"{prefix}"]
             out_labels[f"{prefix}"] = self.prefix2mode[prefix]
 
         return out_labels

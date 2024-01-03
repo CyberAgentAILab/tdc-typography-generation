@@ -2,6 +2,7 @@ from typing import Any, List, Tuple
 
 import torch
 from torch import Tensor, nn
+
 from typography_generation.config.attribute_config import (
     TextElementContextEmbeddingAttributeConfig,
     TextElementContextPredictionAttributeConfig,

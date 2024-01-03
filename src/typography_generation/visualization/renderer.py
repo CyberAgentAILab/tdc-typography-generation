@@ -1,8 +1,9 @@
-from typing import Any, List, Tuple
-import skia
 import os
 import pickle
+from typing import Any, List, Tuple
+
 import numpy as np
+import skia
 
 from typography_generation.visualization.renderer_util import (
     get_color_map,

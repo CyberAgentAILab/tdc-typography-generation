@@ -1,6 +1,8 @@
 from typing import Any, List, Union
+
 from logzero import logger
 from omegaconf import OmegaConf
+
 from typography_generation.config.attribute_config import (
     CanvasContextEmbeddingAttributeConfig,
     TextElementContextEmbeddingAttributeConfig,
