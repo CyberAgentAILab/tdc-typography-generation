@@ -40,9 +40,6 @@ class Tokenizer:
             "text_angle",
             "text_letter_spacing",
             "text_line_height_scale",
-            "text_line_height_size",
-            "text_distance_y_from_prev",
-            "text_distance_x_from_prev",
             "canvas_aspect_ratio",
         ]
         self.rawdata2token = {
@@ -62,7 +59,6 @@ class Tokenizer:
             cluster_num_dict = default_cluster_num_dict
         if load_cluster is True:
             for prefix in self.prefix_list:
-                # fn = f"{data_dir}/stats/{prefix}_cluster.pkl"
                 cluster_num = cluster_num_dict[prefix]
                 fn = f"{data_dir}/cluster/{prefix}_{cluster_num}.pkl"
                 if prefix == "text_font_color":

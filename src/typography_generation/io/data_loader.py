@@ -6,7 +6,6 @@ import torch
 from logzero import logger
 from typography_generation.io.crello_util import CrelloProcessor
 from typography_generation.io.data_object import (
-    DataPreprocessConfig,
     DesignContext,
     FontConfig,
     PrefixListObject,
@@ -42,20 +41,18 @@ class CrelloLoader(torch.utils.data.Dataset):
         logger.debug("create crello dataset processor done")
         self.seq_length = seq_length
 
-    def ordering_text_ids(
-        self, text_num: int, text_ids: List, order_list: List
-    ) -> List:
-        _text_ids = []
-        for i in range(text_num):
-            _text_ids.append(text_ids[int(order_list[i])])
-        return _text_ids
+    def get_ordered_text_ids(self, element_data, order_list) -> List:
+        text_ids = []
+        for i in order_list:
+            if element_data["text"][i] == "":
+                pass
+            else:
+                text_ids.append(i)
+        return text_ids
 
-    def get_order_list(self, elm: Dict[str, Any], text_ids: List) -> List[int]:
+    def get_order_list(self, elm: Dict[str, Any]) -> List[int]:
         if self.dataset.use_extended_dataset:
-            order_list = []
-            for text_index in text_ids:
-                order_list.append(elm["order_list"][text_index])
-            return list(np.argsort(order_list))
+            return elm["order_list"]
         else:
             """
             Sort elments based on the raster scan order.
@@ -63,7 +60,7 @@ class CrelloLoader(torch.utils.data.Dataset):
             center_y = []
             center_x = []
             scaleinfo = self.dataset.get_scale_box(elm)
-            for text_id in text_ids:
+            for text_id in range(len(elm["text"])):
                 center_y.append(self.dataset.get_text_center_y(elm, text_id))
                 center_x.append(self.dataset.get_text_center_x(elm, text_id, scaleinfo))
             center_y = np.array(center_y)
@@ -77,11 +74,10 @@ class CrelloLoader(torch.utils.data.Dataset):
 
         # extract text element indexes
         text_num = self.dataset.get_canvas_text_num(element_data)
-        text_ids = self.dataset.get_canvas_text_ids(element_data)
 
         logger.debug("order elements")
-        order_list = self.get_order_list(element_data, text_ids)
-        text_ids = self.ordering_text_ids(text_num, text_ids, order_list)
+        order_list = self.get_order_list(element_data)
+        text_ids = self.get_ordered_text_ids(element_data, order_list)
         elment_prefix_list = (
             self.prefix_list_object.textelement + self.prefix_list_object.target
         )

@@ -250,7 +250,7 @@ def map_features(
     global fontmgr
     global fontlabel2fontname
 
-    dataset = datasets.load_dataset("cyberagent/crello")
+    dataset = datasets.load_dataset("cyberagent/crello", revision="3.1")
 
     data_dir = _data_dir
     svgid2scaleinfo = pickle.load(open(fn, "rb"))

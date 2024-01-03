@@ -60,15 +60,12 @@ class TrainConfig:
 
 @dataclass
 class TestConfig:
-    prediction_mode: int = 6
     autoregressive_prediction: bool = False
-    autoregressive_order: bool = False
     sampling_mode: str = "topp"
     sampling_param: float = 0
     sampling_param_geometry: float = 0
     sampling_param_semantic: float = 0
     sampling_num: int = 10
-    structure_preserving: bool = False
 
 
 @dataclass
