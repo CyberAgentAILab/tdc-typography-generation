@@ -3,10 +3,6 @@ data_config:
   large_spatio_bin: 64
   small_spatio_bin: 16
   color_bin: 64
-  max_text_char_count: 50
   max_text_line_count: 50
   font_emb_type: "label"
-  font_emb_weight: 1.0
-  font_emb_dim: 40
-  font_emb_name: "rand_40"
   order_type: "rasterscan_asc"

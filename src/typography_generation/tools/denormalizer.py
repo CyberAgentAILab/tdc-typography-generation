@@ -26,7 +26,6 @@ class Denormalizer:
         gt_denorm = []
         canvas_img_size_h, canvas_img_size_w = design_context.canvas_context.img_size
         canvas_h_scale, canvas_w_scale = design_context.canvas_context.scale_box
-        logger.debug(f"{prefix} {pred} {gt}")
         for t in range(text_num):
             g = gt[t]
             if prefix in self.dataset.tokenizer.prefix_list:
@@ -62,7 +61,6 @@ class Denormalizer:
                 canvas_h_scale,
                 canvas_w_scale,
             )
-            logger.debug(f"{prefix} {p} {g}")
             pred_token.append([p_token])
             gt_token.append(g_token)
             pred_denorm.append([p])

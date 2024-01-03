@@ -430,13 +430,16 @@ class BART(nn.Module):
             if _label_link is None:
                 out = model_outs[f"{prefix}"][batch_index]
                 cnt = 0
-                if getattr(self, f"{prefix}_att_type") == "semantic":
+                sampling_type = getattr(self, f"{prefix}_att_type")
+                if sampling_type == "semantic":
                     sampling_param = sampling_param_semantic
-                elif getattr(self, f"{prefix}_att_type") == "geometry":
+                elif sampling_type == "geometry":
                     sampling_param = sampling_param_geometry
 
                 out_label = sample_label(out, text_index, sampling_param)
-                max_val = max(torch.sum(out[text_index]).item(), sampling_param)
+                max_val = max(
+                    torch.sum(F.softmax(out, 1)[text_index]).item(), sampling_param
+                )
                 while out_label in _used_labels:
                     out_label = sample_label(out, text_index, sampling_param)
                     cnt += 1

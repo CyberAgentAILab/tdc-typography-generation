@@ -1,13 +1,13 @@
 import argparse
 import logging
 import os
-from typing import Any
+from typing import Any, Dict, Tuple
 
 import logzero
 import torch
 from logzero import logger
-
 from typography_generation.config.config_args_util import (
+    args2add_data_inputs,
     get_global_config,
     get_global_config_input,
     get_model_config_input,
@@ -24,8 +24,11 @@ from typography_generation.io.build_dataset import (
     build_train_dataset,
 )
 from typography_generation.model.model import create_model
+
 from typography_generation.preprocess.map_features import map_features
+
 from typography_generation.tools.evaluator import Evaluator
+
 from typography_generation.tools.sampler import Sampler
 from typography_generation.tools.structure_preserved_sampler import (
     StructurePreservedSampler,
@@ -199,7 +202,6 @@ def sample(args: Any) -> None:
     logger.info(f"save_dir {save_dir}")
     prefix_list_object = get_prefix_lists(config)
     font_config = get_font_config(config)
-    get_datapreprocess_config(config)
     sampling_config = get_sampling_config(config)
 
     dataset = build_test_dataset(
@@ -244,7 +246,6 @@ def structure_preserved_sample(args: Any) -> None:
     logger.info(f"save_dir {save_dir}")
     prefix_list_object = get_prefix_lists(config)
     font_config = get_font_config(config)
-    get_datapreprocess_config(config)
     sampling_config = get_sampling_config(config)
 
     dataset = build_test_dataset(

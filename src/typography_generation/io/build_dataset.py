@@ -24,10 +24,12 @@ def build_train_dataset(
 
     if dataset_name == "crello":
         logger.info("load hugging dataset start")
-        _dataset = datasets.load_from_disk(
-            os.path.join(data_dir, "crello_map_features")
-        )
-        # _dataset = datasets.load_dataset("cyberagent/crello")
+        if use_extended_dataset is True:
+            _dataset = datasets.load_from_disk(
+                os.path.join(data_dir, "crello_map_features")
+            )
+        else:
+            _dataset = datasets.load_dataset("cyberagent/crello", revision="3.1")
         logger.info("load hugging dataset done")
         dataset = CrelloLoader(
             data_dir,
@@ -64,10 +66,12 @@ def build_test_dataset(
 
     if dataset_name == "crello":
         logger.info("load hugging dataset start")
-        _dataset = datasets.load_from_disk(
-            os.path.join(data_dir, "crello_map_features")
-        )
-        # _dataset = datasets.load_dataset("cyberagent/crello")
+        if use_extended_dataset is True:
+            _dataset = datasets.load_from_disk(
+                os.path.join(data_dir, "crello_map_features")
+            )
+        else:
+            _dataset = datasets.load_dataset("cyberagent/crello", revision="3.1")
         logger.info("load hugging dataset done")
         dataset = CrelloLoader(
             data_dir,

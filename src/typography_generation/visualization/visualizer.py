@@ -43,12 +43,14 @@ def replace_style_data_by_prediction(
     return element_data
 
 
-def ordering_text_ids(order_list: List, text_ids: List) -> List:
-    _text_ids = []
-    for i in range(len(text_ids)):
-        k = text_ids[int(order_list[i])]
-        _text_ids.append(k)
-    return _text_ids
+def get_ordered_text_ids(element_data, order_list) -> List:
+    text_ids = []
+    for i in order_list:
+        if element_data["text"][i] == "":
+            pass
+        else:
+            text_ids.append(i)
+    return text_ids
 
 
 def visualize_prediction(
@@ -60,7 +62,7 @@ def visualize_prediction(
     text_ids = get_text_ids(element_data)
     order_list = element_data["order_list"]
     scaleinfo = element_data["scale_box"]
-    text_ids = ordering_text_ids(order_list, text_ids)
+    text_ids = get_ordered_text_ids(element_data, order_list)
     element_data = replace_style_data_by_prediction(prediction, element_data, text_ids)
     img = renderer.draw_texts(element_data, text_ids, np.array(bg_img), scaleinfo)
     return img
