@@ -4,7 +4,7 @@ layout: default
 
 ## Towards Diverse and Consistent Typography Generation
 
-![Concept](https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/master/images/teaser.jpg)
+![Concept](https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/projectpage/images/teaser.jpg)
 
 Wataru Shimoda<sup>1</sup>, Daichi Haraguchi<sup>2</sup>, Seiichi Uchida<sup>2</sup>, Kota Yamaguchi<sup>1</sup>  
 <sup>1</sup>CyberAgent.Inc, <sup>2</sup> Kyushu University  
@@ -14,10 +14,10 @@ In this work, we consider the typography generation task that aims at producing 
 
 
 ### Results
-<img src = "https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/master/images/res.png" title = "res">
+<img src = "https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/projectpage/images/res.png" title = "res">
 
 ### Results with different diversity  
-<img src = "https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/master/images/diverseexample.png" title = "cmp">
+<img src = "https://raw.githubusercontent.com/CyberAgentAILab/tdc-typography-generation/projectpage/images/diverseexample.png" title = "cmp">
 
 ### Citation
 
