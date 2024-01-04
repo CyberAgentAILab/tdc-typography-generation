@@ -1,4 +1,0 @@
-test_config:
-  sampling_param: 0.9
-  sampling_param_geometry: 0.1
-  sampling_param_semantic: 0.9

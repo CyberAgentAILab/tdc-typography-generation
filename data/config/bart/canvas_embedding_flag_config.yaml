@@ -1,5 +1,0 @@
-canvas_embedding_flag:
-  canvas_bg_img: False
-  canvas_bg_img_emb: True
-  canvas_aspect_ratio: True
-  canvas_text_num: True

@@ -1,7 +1,0 @@
-train_config:
-  epochs: 31
-  save_epoch: 5
-  batch_size: 32
-  num_worker: 2
-  train_only: False
-  show_interval: 100

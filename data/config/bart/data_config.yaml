@@ -1,8 +1,0 @@
-data_config:
-  font_num: 261
-  large_spatio_bin: 64
-  small_spatio_bin: 16
-  color_bin: 64
-  max_text_line_count: 50
-  font_emb_type: "label"
-  order_type: "rasterscan_asc"
