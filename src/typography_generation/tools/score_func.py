@@ -155,12 +155,6 @@ class EvalDataEntire:
                 self.f,
             )
 
-    def show_alpha_overlap_score(self) -> None:
-        compute_alpha_overlap(
-            getattr(self, "overlap_scores"),
-            self.f,
-        )
-
 
 def compute_abs_error_score(
     eval_list: dict,
@@ -455,18 +449,7 @@ def compute_bigram_score(
 ) -> Tuple:
     cnt = 0
     structure_accuracy_mean = 0.0
-    structure_precision_mean = 0.0
-    structure_recall_mean = 0.0
-    structure_fvalue_mean = 0.0
-    structure_spcecificity_mean = 0.0
-    structure_precision_inv_mean = 0.0
-    structure_recall_inv_mean = 0.0
-    structure_fvalue_inv_mean = 0.0
     label_score_mean = 0.0
-    l11cnt_all = 0
-    l00cnt_all = 0
-    l10cnt_all = 0
-    l01cnt_all = 0
     diff_case_scores = {}
     diff_case_counts = {}
     diff_case_scores[1] = 0.0  # no consistency
@@ -483,33 +466,21 @@ def compute_bigram_score(
         pred = pred_list[index]
         gt = gt_list[index]
         flag = get_structure_type(gt)
-        scores, counts = compute_bigram_structure_score(pred, gt)
+        scores, _ = compute_bigram_structure_score(pred, gt)
         (
             structure_accuracy,
-            structure_spcecificity,
-            structure_precision,
-            structure_recall,
+            _,
+            _,
+            _,
             structure_fvalue,
-            structure_precision_inv,
-            structure_recall_inv,
+            _,
+            _,
             structure_fvalue_inv,
             _structure_fvalue,
             _structure_fvalue_inv,
         ) = scores
-        l11cnt, l00cnt, l10cnt, l01cnt = counts
-        l11cnt_all += l11cnt
-        l00cnt_all += l00cnt
-        l10cnt_all += l10cnt
-        l01cnt_all += l01cnt
         label_score = compute_bigram_label_score(pred, gt)
         structure_accuracy_mean += structure_accuracy
-        structure_spcecificity_mean += structure_spcecificity
-        structure_precision_mean += structure_precision
-        structure_recall_mean += structure_recall
-        structure_fvalue_mean += structure_fvalue
-        structure_precision_inv_mean += structure_precision_inv
-        structure_recall_inv_mean += structure_recall_inv
-        structure_fvalue_inv_mean += structure_fvalue_inv
         label_score_mean += label_score
 
         if flag == 0:
@@ -528,19 +499,10 @@ def compute_bigram_score(
 
         cnt += 1
     structure_accuracy_mean /= cnt
-    structure_spcecificity_mean /= cnt
-    structure_precision_mean /= cnt
-    structure_recall_mean /= cnt
-    structure_fvalue_mean /= cnt
-    structure_precision_inv_mean /= cnt
-    structure_recall_inv_mean /= cnt
-    structure_fvalue_inv_mean /= cnt
     label_score_mean /= cnt
     log.info("structure_accuracy {:.3f}".format(structure_accuracy_mean))
     f.write("structure_accuracy {:.3f} \n".format(structure_accuracy_mean))
 
-    # log.info("label_score {:.3f}".format(label_score_mean))
-    # f.write("label_score {:.3f} \n".format(label_score_mean))
     log.info("structure nanmean {:.3f}".format(np.nanmean(structure_nanmean)))
     f.write("structure nanmean {:.3f} \n".format(np.nanmean(structure_nanmean)))
     for i in range(1, 4):
@@ -560,22 +522,6 @@ def compute_bigram_score(
             f.write(
                 "structure_case_score{} count:{} - \n".format(i, diff_case_counts[i])
             )
-
-    scores = get_binary_classification_scores(
-        l11cnt_all, l00cnt_all, l10cnt_all, l01cnt_all
-    )
-    (
-        structure_accuracy,
-        structure_spcecificity,
-        structure_precision,
-        structure_recall,
-        structure_fvalue,
-        structure_precision_inv,
-        structure_recall_inv,
-        structure_fvalue_inv,
-        _structure_fvalue,
-        _structure_fvalue_inv,
-    ) = scores
     return structure_accuracy_mean, label_score_mean
 
 
@@ -613,46 +559,3 @@ def compute_label_diversity_score(
     label_diversity_avg /= cnt
     log.info("diversity score {:.1f}".format(label_diversity_avg * 100))
     f.write("diversity score {:.1f}\n".format(label_diversity_avg * 100))
-
-
-def compute_alpha_overlap(
-    overlap_scores: Dict,
-    f: TextIOWrapper,
-) -> None:
-    overlap_score_all = 0
-    cnt_all = 0
-    data_index_list = list(overlap_scores.keys())
-    for index in data_index_list:
-        overlap_score = overlap_scores[f"{index}"]
-        if overlap_score is not None:
-            overlap_score_all += overlap_score
-            cnt_all += 1
-    if cnt_all > 0:
-        overlap_score_all = overlap_score_all / cnt_all
-
-        log.info("alpha overlap score {:.2f}".format(overlap_score_all))
-        f.write("alpha overlap score {:.2f}\n".format(overlap_score_all))
-
-
-def _compute_alpha_overlap(
-    alpha_map_list: List,
-) -> None:
-    overlap_score = 0
-    cnt = 0
-    for i in range(len(alpha_map_list)):
-        alpha_i = alpha_map_list[i]
-        for j in range(len(alpha_map_list)):
-            if i == j:
-                continue
-            else:
-                alpha_j = alpha_map_list[j]
-                overlap = np.sum(alpha_i * alpha_j)
-                if np.sum(alpha_i) > 0:
-                    recall = overlap / np.sum(alpha_i)
-                    overlap_score += recall
-                    cnt += 1
-    if cnt > 0:
-        overlap_score = overlap_score / cnt
-        return overlap_score
-    else:
-        return None

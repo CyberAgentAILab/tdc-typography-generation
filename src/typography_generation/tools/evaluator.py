@@ -213,7 +213,6 @@ class Evaluator:
         for prefix in show_bigram_score_att:
             if prefix in self.prefix_list_target:
                 self.entire_data.show_structure_score(prefix)
-        self.entire_data.show_alpha_overlap_score()
 
     def save_prediction(self) -> None:
         file_name = os.path.join(self.save_dir, "prediction.pkl")
