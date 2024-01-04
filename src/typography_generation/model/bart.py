@@ -443,6 +443,8 @@ class BART(nn.Module):
                 while out_label in _used_labels:
                     out_label = sample_label(out, text_index, sampling_param)
                     cnt += 1
+
+                    # escape from infinite loop
                     if cnt > 10:
                         sampling_param += abs((max_val - sampling_param) * 0.1)
                     if cnt > 1000:
