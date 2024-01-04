@@ -2,8 +2,9 @@
 Wataru Shimoda<sup>1</sup>, Daichi Haraguchi<sup>2</sup>, Seiichi Uchida<sup>2</sup>, Kota Yamaguchi<sup>1</sup>  
 <sup>1</sup>CyberAgent.Inc, <sup>2</sup> Kyushu University  
 Accepted to WACV2024.
+[[Publication](https://openaccess.thecvf.com/content/WACV2024/papers/Shimoda_Towards_Diverse_and_Consistent_Typography_Generation_WACV_2024_paper.pdf)]
 [[Arxiv](https://arxiv.org/abs/2309.02099)]
-[[project-page](https://cyberagentailab.github.io/tdc-typography-generation/)]
+[[Project-page](https://cyberagentailab.github.io/tdc-typography-generation/)]
 
 ## Introduction
 This repository contains the codes for ["Towards Diverse and Consistent Typography Generation"](https://arxiv.org/abs/2309.02099).
