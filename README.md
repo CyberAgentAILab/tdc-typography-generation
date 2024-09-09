@@ -113,7 +113,7 @@ We provides notebooks for showing results.
 @misc{shimoda_2024_tdctg,
     author    = {Shimoda, Wataru and Haraguchi, Daichi and Uchida, Seiichi and Yamaguchi, Kota},
     title     = {Towards Diverse and Consistent Typography Generation},
-    publisher = {arXiv:2309.02099},
+    publisher = {Winter Conference on Applications of Computer Vision (WACV)},
     year      = {2024},
 }
 ```
