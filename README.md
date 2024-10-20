@@ -91,8 +91,8 @@ The outputs are in `${OUTPUT_DIR}`.
 The following command samples typographic attributes.  
 This command requires `--weight` option, which is a path for loading weights of a trained model.  
 A weight file obtained by the avobe training command is in  `${OUTPUT_DIR}/weight.pth`.  
-Please assign a path of a weight file to `${WEIGHT_FILE}`.
-The pretrained-model is [here](https://storage.googleapis.com/ailab-public/tdc_typography_generation/model.pth). (Note that this model is reproduced.)
+Please assign a path of a weight file to `${WEIGHT_FILE}`.  
+A pretrained-model reproduced by this repository is [here](https://storage.googleapis.com/ailab-public/tdc_typography_generation/model.pth).  
 ``` sh
 python -m typography_generation structure_preserved_sample \
           --configname bart \
