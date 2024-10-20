@@ -38,10 +38,11 @@ class CrelloProcessor:
         self.dataset = dataset
         self.seq_length = seq_length
         if font_config is not None:
-            fn = os.path.join(
-                self.data_dir, "font_emb", f"{font_config.font_emb_name}.pkl"
-            )
-            self.fontid2fontemb = pickle.load(open(fn, "rb"))
+            if font_config.font_emb_type != "label":
+                fn = os.path.join(
+                    self.data_dir, "font_emb", f"{font_config.font_emb_name}.pkl"
+                )
+                self.fontid2fontemb = pickle.load(open(fn, "rb"))
         self.use_extended_dataset = use_extended_dataset
         if not use_extended_dataset:
             fn = os.path.join(data_dir, "font2ttf.pkl")

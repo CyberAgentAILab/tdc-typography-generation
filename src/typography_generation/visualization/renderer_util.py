@@ -117,7 +117,7 @@ def get_text_alpha(
             )
         canvas.rotate(-1 * angle, center_x, y)
         y += line_height
-    text_alpha = surface.makeImageSnapshot().toarray()[:, :, 0]
+    text_alpha = surface.makeImageSnapshot().toarray()[:, :, 3]
     text_alpha = text_alpha / 255.0
     text_alpha = np.tile(text_alpha[:, :, np.newaxis], (1, 1, 3))
     return np.minimum(text_alpha, np.zeros_like(text_alpha) + 1)

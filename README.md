@@ -78,7 +78,7 @@ We handle the detail of training via configuration files in `data/config/*.yaml`
 The basic configurations are in `src/typography_generation/config/*.py`.  
 
 ``` sh
-python -m typography_generation train_eval \
+python -m typography_generation train_evaluation \
           --configname bart \
           --jobdir ${OUTPUT_DIR} \
           --datadir data \

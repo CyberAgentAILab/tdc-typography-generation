@@ -8,7 +8,7 @@ from logzero import logger
 
 
 class PredictionRecoder:
-    def __init__(self, prefix_list_target: List, topk: int = 5):
+    def __init__(self, prefix_list_target: List, topk: int = 1):
         super(PredictionRecoder, self).__init__()
         self.prefix_list_target = prefix_list_target
         self.topk = topk
